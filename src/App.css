@@ -36,3 +36,18 @@
     transform: rotate(360deg);
   }
 }
+
+#all {
+    height: 100vh;
+    overflow-y: hidden;
+}
+
+#mainContent {
+    margin: 24px 16px;
+    padding: 24px;
+}
+
+#sideMenu {
+  height: 100vh;
+  overflow-y: auto;
+}
