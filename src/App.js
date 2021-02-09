@@ -11,7 +11,7 @@ import MainLogoUrl from './img/main-logo.png'
 import {BrowserRouter as Router,} from 'react-router-dom'
 import routes from './feature/router'
 import renderLinks from "./common/utils/renderLinks";
-import myRenderRoutes from "./common/utils/renderRoutes";
+import renderRoutes from "./common/utils/renderRoutes";
 
 const {Header, Sider, Content} = Layout;
 // const {SubMenu} = Menu;
@@ -59,7 +59,7 @@ const App = () => {
                   }}
                   className="site-layout-background"
               >
-                {myRenderRoutes(routes)}
+                {renderRoutes(routes)}
               </Content>
             </Layout>
           </Router>
