@@ -8,9 +8,10 @@ import 'moment/locale/zh-cn';
 import 'antd/dist/antd.css';
 import './index.css';
 import MainLogoUrl from './img/main-logo.png'
-import {BrowserRouter as Router, Link,} from 'react-router-dom'
-import {renderRoutes} from 'react-router-config';
+import {BrowserRouter as Router,} from 'react-router-dom'
 import routes from './feature/router'
+import renderLinks from "./common/utils/renderLinks";
+import myRenderRoutes from "./common/utils/renderRoutes";
 
 const {Header, Sider, Content} = Layout;
 // const {SubMenu} = Menu;
@@ -40,16 +41,8 @@ const App = () => {
                 margin: logoMargin
               }}/>
               <Menu id="sideMenu" theme="dark" mode="inline" defaultSelectedKeys={['1']}>
-                {routes.map((r, index) =>
-                    <Menu.Item key={index} icon={r.icon}><Link to={r.path} style={{ textDecoration: 'none' }}>{r.name}</Link></Menu.Item>
-                )}
-
-                {/*<SubMenu key="sub1" icon={<UserOutlined/>} title="User">*/}
-                {/*  <Menu.Item key="101">Tom</Menu.Item>*/}
-                {/*  <Menu.Item key="102">Bill</Menu.Item>*/}
-                {/*  <Menu.Item key="103">Alex</Menu.Item>*/}
-                {/*</SubMenu>*/}
-              </Menu>]
+                {routes.map((item, idx) => renderLinks(item, idx))}
+              </Menu>
             </Sider>
             <Layout className="site-layout">
               <Header className="site-layout-background" style={{padding: 0}}>
@@ -66,7 +59,7 @@ const App = () => {
                   }}
                   className="site-layout-background"
               >
-                {renderRoutes(routes)}
+                {myRenderRoutes(routes)}
               </Content>
             </Layout>
           </Router>

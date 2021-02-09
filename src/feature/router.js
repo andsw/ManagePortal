@@ -1,21 +1,32 @@
-import GoodsTable from "./goods/GoodsTable";
-import StorageTable from "./storage/StorageTable";
 import CustomerTable from "./customer/CustomerTable";
 import SettingTable from "./setting/SettingTable";
-import {TeamOutlined, UploadOutlined, UserOutlined, VideoCameraOutlined} from '@ant-design/icons';
+import {UploadOutlined, UserOutlined, VideoCameraOutlined} from '@ant-design/icons';
+import BrandManager from "./goods/BrandManager";
+import CategoryManager from "./goods/CategoryManager";
+import StorageManager from "./goods/StorageManager";
 
 const routes = [
   {
+    name: "产品管理",
     path: "/goods",
-    name: "商品管理",
     icon: <VideoCameraOutlined/>,
-    component: GoodsTable
-  },
-  {
-    path: "/storage",
-    name: "库存管理",
-    icon: <TeamOutlined/>,
-    component: StorageTable
+    routes: [
+      {
+        name: "品牌管理",
+        path: "/brand",
+        component: BrandManager
+      },
+      {
+        name: "类别管理",
+        path: "/category",
+        component: CategoryManager
+      },
+      {
+        name: "库存管理",
+        path: "/storage",
+        component: StorageManager
+      }
+    ]
   },
   {
     path: "/customer",
